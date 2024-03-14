@@ -1,11 +1,11 @@
-#spring:
-#  profiles:
-#    active: dev
 spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: 117.72.9.212:8848
-  config:
-    import:
-      - nacos:service-cart-dev.yml
+  profiles:
+    active: dev
+#spring:
+#  cloud:
+#    nacos:
+#      config:
+#        server-addr: 117.72.9.212:8848
+#  config:
+#    import:
+#      - nacos:service-cart-dev.yml

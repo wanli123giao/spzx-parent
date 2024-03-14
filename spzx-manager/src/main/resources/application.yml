@@ -1,16 +1,16 @@
-#
-#spring:
-#  application:
-#    name: server-manager
-#  profiles:
-#    active: dev
+
 spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: 117.72.9.212:8848
-  config:
-    import:
-      - nacos:manager-dev.yml
+  application:
+    name: server-manager
+  profiles:
+    active: dev
+#spring:
+#  cloud:
+#    nacos:
+#      config:
+#        server-addr: 117.72.9.212:8848
+#  config:
+#    import:
+#      - nacos:manager-dev.yml
 
 

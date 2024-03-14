@@ -1,12 +1,12 @@
-#spring:
-#  profiles:
-#    active: dev
-
 spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: 117.72.9.212:8848
-  config:
-    import:
-      - nacos:service-user-dev.yml
+  profiles:
+    active: dev
+
+#spring:
+#  cloud:
+#    nacos:
+#      config:
+#        server-addr: 117.72.9.212:8848
+#  config:
+#    import:
+#      - nacos:service-user-dev.yml
