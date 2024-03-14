@@ -5,7 +5,7 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 207.211.188.152:8848
+        server-addr: 117.72.9.212:8848
   config:
     import:
       - nacos:server-geteway-dev.yml

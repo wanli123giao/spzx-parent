@@ -6,14 +6,14 @@ spring:
   datasource:
     #type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://207.211.188.152:3306/db_spzx?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://117.72.9.212:3306/db_spzx?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
     password: 1234
 
   # Redis的相关配置
   data:
     redis:
-      host: 207.211.188.152
+      host: 117.72.9.212
       port: 6379
 #  password: 1234
 
@@ -29,7 +29,7 @@ spzx:
       - /admin/system/index/generateValidateCode
   # 自定义配置
   minio:
-    endpointUrl: http://207.211.188.152:9001
+    endpointUrl: http://117.72.9.212:9001
     accessKey: admin
     secretKey: admin123456
-    bucketName: wl-spzx-bucket
+    bucketName: spzx-bucket
