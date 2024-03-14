@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.spzx.manager.mapper.SysRoleMenuMapper">
+<!--    // 根据角色的id删除其所对应的菜单数据-->
+    <delete id="deleteSysRoleMenuByRoleId">
+        delete from sys_role_menu where role_id = #{roleId}
+    </delete>
+<!--    // 根据id更新sys_role_menu表中父节点is_half字段-->
+    <select id="updateSysRoleMenuIsHalf">
+        update sys_role_menu srm set srm.is_half = 1 where menu_id = #{menuId}
+    </select>
+    <!--    //保存分配数据-->
+    <insert id="doAssign">
+        insert into sys_role_menu (
+        role_id,
+        menu_id,
+        create_time , update_time , is_deleted , is_half
+        ) values
+        <foreach collection="menuIdList" item="menuInfo" separator=",">
+            (#{roleId} , #{menuInfo.id} , now() , now() , 0 , #{menuInfo.isHalf})
+        </foreach>
+    </insert>
+<!--    //1.查询所有菜单,和角色分配的菜单-->
+    <select id="findSysRoleMenuByRoleId" resultType="long">
+        select menu_id from sys_role_menu where role_id = #{roleId} and is_deleted = 0 and is_half = 0
+    </select>
+    <!--注意：
+1、查询的标签select必须设置属性resultType或resultMap，用于设置实体类和数据库表的映射
+关系
+resultType：自动映射，用于属性名和表中字段名一致的情况
+resultMap：自定义映射，用于一对多或多对一或字段名和属性名不一致的情况
+2、当查询的数据为多条时，不能使用实体类作为返回值，只能使用集合，否则会抛出异常
+TooManyResultsException；但是若查询的数据只有一条，可以使用实体类或集合作为返回值-->
+</mapper>

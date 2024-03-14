@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spzx-parent</artifactId>
+        <groupId>com.test</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>service-product-client</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-openfeign-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.test</groupId>
+            <artifactId>common-util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>provided </scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.test</groupId>
+            <artifactId>spzx-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>provided </scope>
+        </dependency>
+
+        <!-- openfeign依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!-- loadbalancer依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-loadbalancer</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>

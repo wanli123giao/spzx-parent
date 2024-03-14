@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.spzx.product.mapper.CategoryMapper">
+
+    <resultMap id="categoryMap" type="com.test.spzx.model.entity.product.Category" autoMapping="true">
+    </resultMap>
+    <!-- 用于select查询公用抽取的列 -->
+    <sql id="columns">
+        id,name,image_url,parent_id,status,order_num,create_time,update_time,is_deleted
+    </sql>
+<!--    //全部一级分类-->
+    <select id="findAll" resultMap="categoryMap">
+        select <include refid="columns" />
+        from category
+        where
+        status = 1
+        and is_deleted = 0
+        order by order_num
+    </select>
+
+    <select id="selectOneCategory" resultMap="categoryMap">
+        select <include refid="columns" />
+        from category
+        where
+        parent_id = 0
+        and status = 1
+        and is_deleted = 0
+        order by order_num
+    </select>
+    <!--注意：
+1、查询的标签select必须设置属性resultType或resultMap，用于设置实体类和数据库表的映射
+关系
+resultType：自动映射，用于属性名和表中字段名一致的情况
+resultMap：自定义映射，用于一对多或多对一或字段名和属性名不一致的情况
+2、当查询的数据为多条时，不能使用实体类作为返回值，只能使用集合，否则会抛出异常
+TooManyResultsException；但是若查询的数据只有一条，可以使用实体类或集合作为返回值-->
+</mapper>

@@ -1,0 +1,26 @@
+server:
+  port: 8511
+
+spring:
+  application:
+    name: service-product
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 207.211.188.152:8848
+#        username: nacos
+#        password: nacos
+  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://207.211.188.152:3306/db_spzx?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: 1234
+  data:
+    redis:
+      port: 6379
+      host:  207.211.188.152
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:/mapper/*/*.xml
